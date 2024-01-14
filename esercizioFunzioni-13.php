@@ -35,7 +35,6 @@ function controllaPassword(string $password){
 
 function controlloLunghezza (string $password){
     $lunghezza_min= 8;
-    for($i=0;$i>strlen($password); $i++)
     if(strlen($password)>$lunghezza_min){
     return true
     }
@@ -45,7 +44,7 @@ function controlloLunghezza (string $password){
 
 function controlloNumero (string $password){
     $numero=[1,2,3,4,5,6,7,8,9,]
-    for($i=0; $i>strlen($password);$i ++){
+    for($i=0; $i<strlen($password);$i ++){
         if(in_array($password[$i],$numero)){
             return true
         }
@@ -54,7 +53,7 @@ function controlloNumero (string $password){
 }
 
 function controlloMaiuscolo (string $password){
-    $ControlloMaiuscola=[strtoupper($password)]
+    $ControlloMaiuscola=[ctype_upper($password)]
     for($i=0; $i>strlen($password);$i++ ){
         if($password === $ControlloMaiuscola){
             return true
@@ -75,3 +74,4 @@ function controlloSpeciale (string $password){
 
     return false
 }
+
