@@ -35,6 +35,7 @@ public function aulab_1(){
 
 public function get_spesa_annuale ($mesi = 12){
     echo ("L'azienda " . $this->name . " ha speso " . $this->$spesa_annua ($mesi) . "euro\n");
+    echo("Il costo di tutte le aziende Ã¨ " . $this->spesa_annua_tot($months) . " euro \n");
 }
 
 public function spesa_annua_tot($mesi){
@@ -42,7 +43,11 @@ public function spesa_annua_tot($mesi){
 
 }
 
-static public function spesa_finale(){
+public function Spesa_finale (){
+    return self::$totale_annuo;
+}
+
+public static function get_spesa_finale(){
     echo ("le spese finali di tutte le aziende sono di " . self::$totale_annuo . "euro \n");
 }
 
