@@ -74,3 +74,4 @@ function controlloSpeciale (string $password){
 
     return false
 }
+
