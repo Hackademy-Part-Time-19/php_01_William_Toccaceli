@@ -1,0 +1,123 @@
+<?php
+
+ class Continent{
+    public  $nameContinent;
+  
+    public function __construct($_nameContinent){
+    
+        $this->nameContinent = $_nameContinent;
+        
+   
+    }
+
+  
+ }
+
+class Country extends Continent{
+   public  $nameCountry;
+
+    public function __construct($_nameContinent, $_nameCountry){
+        parent::__construct($_nameContinent);
+       
+        $this->nameCountry= $_nameCountry;
+    }
+
+}
+
+class Region extends Country{
+    public $nameRegion;
+
+    public function __construct($_nameContinent, $_nameCountry, $_nameRegion){
+        parent::__construct($_nameContinent, $_nameCountry);
+       
+        $this->nameRegion= $_nameRegion;
+    }
+
+}
+
+class Province extends Region{
+    public $nameProvince;
+
+    public function __construct($_nameContinent, $_nameCountry, $_nameRegion, $_nameProvince){
+        parent::__construct($_nameContinent, $_nameCountry, $_nameRegion);
+        
+        $this->nameProvince= $_nameProvince;
+    }
+
+}
+
+class City extends Province{
+    public $nameCity;
+
+    public function __construct($_nameContinent, $_nameCountry, $_nameRegion, $_nameProvince, $_nameCity){
+        parent::__construct($_nameContinent, $_nameCountry, $_nameRegion, $_nameProvince);
+        
+        $this->nameCity= $_nameCity;
+    }
+}
+
+class Street extends City{
+    public $nameStreet;
+
+    public function __construct($_nameContinent,$_nameCountry, $_nameRegion, $_nameProvince, $_nameCity ,$_nameStreet){
+        parent::__construct($_nameContinent, $_nameCountry, $_nameRegion, $_nameProvince, $_nameCity);
+
+        $this->nameStreet = $_nameStreet;
+    }
+
+    public function getMyCurrentLocation(){
+        echo "Mi trovo in " . $this->nameContinent . " " . $this->nameCountry. " " . $this->nameRegion. " " . $this->nameProvince. " " . $this->nameCity. " " . $this->nameStreet ;
+    }
+    
+}
+$stringaContinents = new Street ("Europa", "Italia","Puglia", "Ba", "Bari", "Strada San Giorgio Martire 2D");
+
+
+$stringaContinents->getMyCurrentLocation();
+
+
+
+class Vertebrates{
+
+public $nameVertebrates;
+
+public function __construct($_nameVertebrates){
+    
+    $this->nameVertebrates = $_nameVertebrates;
+}
+
+}
+
+class WarmBlooded extends Vertebrates{
+
+    protected $nameWarmBlooded;
+    protected function __construct($_namevertebrates, $_nameWarmBlooded){
+        parent::__construct($_namevertebrates);
+
+        $this->nameWarmBlooded = $_nameWarmBlooded;
+       
+    }
+
+}
+
+class Mammals extends Warmblooded{
+
+    protected $nameMammals;
+
+    protected function __construct($_namevertebrates, $_nameWarmBlooded, $_nameMammals){
+        parent::__construct($_namevertebrates, $_nameWarmBlooded);
+
+        $this->nameMammals = $_nameMammals;
+    }
+}
+
+class Birds extends WarmBlooded{
+
+    protected $nameBirds;
+
+    protected function __construct($_namevertebrates, $_nameWarmBlooded, $_nameBirds){
+        parent::__construct($_namevertebrates, $_nameWarmBlooded);
+
+        $this->nameBirds= $_nameBirds;
+    }
+}
